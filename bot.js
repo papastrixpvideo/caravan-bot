@@ -184,7 +184,7 @@ await interaction.reply("✅ Time updated")
 
 })
 
-client.login(config.token)
+client.login(process.env.TOKEN)
 
 const commands=[
 
