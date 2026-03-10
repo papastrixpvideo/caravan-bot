@@ -89,11 +89,13 @@ let data = schedule[d]
 
 let event = nextEvent(parseInt(d),data)
 
-let title = `📅 ${days[d]}`
+let title = `📅 **${days[d]}**`
 
 if(parseInt(d) === today){
-title = `🟢 TODAY — ${days[d]}`
+title = `🟢 **TODAY — ${days[d]}**`
 }
+
+let serverTime = `${data.hour.toString().padStart(2,"0")}:${data.minute.toString().padStart(2,"0")}`
 
 embed.addFields({
 
@@ -101,8 +103,10 @@ name:title,
 
 value:
 `🚚 **Driver:** ${data.driver}
-🕒 **Server:** ${data.hour}:${data.minute.toString().padStart(2,"0")}
-🌍 **Your time:** <t:${Math.floor(event/1000)}:t>`
+🕒 **Server:** ${serverTime}
+🌍 **Your time:** <t:${Math.floor(event/1000)}:t>
+
+━━━━━━━━━━━━━━━━━━━━`
 
 })
 
@@ -184,8 +188,7 @@ await interaction.reply("✅ Time updated")
 
 })
 
-
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN)
 
 const commands=[
 
@@ -208,13 +211,14 @@ const rest = new REST({version:"10"}).setToken(process.env.TOKEN)
 
 ;(async()=>{
 
- await rest.put(
-  Routes.applicationGuildCommands(config.clientId,config.guildId),
-  {body:commands}
- )
+await rest.put(
+Routes.applicationGuildCommands(config.clientId,config.guildId),
+{body:commands}
+)
 
 })()
 
 process.stdin.resume()
+
 
 
