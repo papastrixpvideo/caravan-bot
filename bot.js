@@ -184,9 +184,8 @@ await interaction.reply("✅ Time updated")
 
 })
 
-console.log("TOKEN:", process.env.TOKEN)
-
-client.login(process.env.TOKEN)
+console.log("ENV TOKEN:", process.env.TOKEN);
+client.login(process.env.TOKEN);
 
 const commands=[
 
@@ -213,5 +212,6 @@ await rest.put(
 Routes.applicationGuildCommands(config.clientId,config.guildId),
 {body:commands}
 )
+
 
 })()
