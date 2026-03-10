@@ -115,7 +115,7 @@ return embed
 
 let panel
 
-client.once("ready",async()=>{
+client.once("clientReady", async () => {
 
 console.log("Caravan bot ready")
 
@@ -215,4 +215,5 @@ Routes.applicationGuildCommands(config.clientId,config.guildId),
 
 
 })()
+
 
