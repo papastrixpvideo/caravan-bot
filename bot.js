@@ -184,7 +184,7 @@ await interaction.reply("✅ Time updated")
 
 })
 
-console.log("ENV TOKEN:", process.env.TOKEN);
+
 client.login(process.env.TOKEN);
 
 const commands=[
@@ -204,7 +204,7 @@ new SlashCommandBuilder()
 
 ]
 
-const rest = new REST({version:"10"}).setToken(config.token)
+const rest = new REST({version:"10"}).setToken(process.env.TOKEN)
 
 ;(async()=>{
 
@@ -215,3 +215,4 @@ Routes.applicationGuildCommands(config.clientId,config.guildId),
 
 
 })()
+
